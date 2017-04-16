@@ -57,7 +57,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func onNewButton(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "newMessage", sender: nil)
+        //performSegue(withIdentifier: "newMessage", sender: nil)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let composeVC = mainStoryboard.instantiateViewController(withIdentifier: "ComposeVC") as! ComposeViewController
+        self.present(composeVC, animated: true, completion: nil)
         
     }
     

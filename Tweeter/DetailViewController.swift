@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         self.tweetContentLabel.text = content
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy, h:mm a Z"
+        formatter.dateFormat = "MM/dd/yy, h:mm a"
         self.timestampLabel.text = formatter.string(from: tweet.timestamp!)
         
 
