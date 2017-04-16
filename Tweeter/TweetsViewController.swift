@@ -51,10 +51,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
 
     
-    @IBAction func onLogoutButton(_ sender: Any) {
+    @IBAction func onLogoutButton(_ sender: UIBarButtonItem) {
         TwitterClient.sharedInstance?.logout()
         
     }
+    
+    @IBAction func onNewButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "newMessage", sender: nil)
+        
+    }
+    
 
     /*
     // MARK: - Navigation
