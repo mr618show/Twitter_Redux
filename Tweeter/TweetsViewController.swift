@@ -8,19 +8,23 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
-    var tweets = [Tweet]!
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var tweets = [Tweet]()
+
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+    
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        TwitterClient.homeTimeline({(tweets: [Tweet]) -> () in
+        //TwitterClient.sharedInstance?.currentAccount()
+        TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
-            for tweet in tweets {
-                tableview.reloadData
-            }
+            self.tableView.reloadData()
         }, failure: { (error: NSError) -> () in
-            print(erro.localizedDescription)
+            print(error.localizedDescription)
         })
 
         // Do any additional setup after loading the view.
@@ -31,7 +35,24 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return tweets.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath ) as! TweetCell
+         cell.tweet = tweets[indexPath.row]
+        return cell
+    }
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
     
 
     /*
