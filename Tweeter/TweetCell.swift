@@ -17,6 +17,9 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            nameLabel.text = tweet.name as String?
+            screenNameLabel.text = String("@")! + (tweet.screenname as String?)!
+            self.thumbImageView.setImageWith(tweet.profileUrl as! URL)
             tweetContentLabel.text = tweet.text as String?
             let date = Date()
             let difference = date.timeIntervalSince(tweet.timestamp!)
@@ -36,13 +39,7 @@ class TweetCell: UITableViewCell {
         }
     }
     
-    var user: User! {
-        didSet {
-            nameLabel.text = user.name as String?
-            screenNameLabel.text = user.screenname as String?
-            self.thumbImageView.setImageWith(user.profileUrl as! URL)
-        }
-    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

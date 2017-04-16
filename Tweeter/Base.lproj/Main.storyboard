@@ -48,7 +48,7 @@
         <!--Home-->
         <scene sceneID="FXb-ae-3AG">
             <objects>
-                <viewController storyboardIdentifier="TweetsNavigationController" id="EmF-Dn-zeS" customClass="TweetsViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EmF-Dn-zeS" customClass="TweetsViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KJ9-IQ-4zK"/>
                         <viewControllerLayoutGuide type="bottom" id="pvb-H0-3Wx"/>
@@ -77,16 +77,17 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Tim Lee" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8Y-5W-cTX">
-                                                    <rect key="frame" x="94" y="4" width="57" height="18"/>
+                                                    <rect key="frame" x="94" y="4" width="89" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="Lkg-JO-M7L"/>
+                                                        <constraint firstAttribute="width" constant="89" id="mUa-5D-N82"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the tweet content. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juA-g2-UgV">
-                                                    <rect key="frame" x="94" y="31" width="273" height="39.5"/>
+                                                    <rect key="frame" x="94" y="46" width="273" height="39.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="273" id="zHH-64-H7R"/>
                                                     </constraints>
@@ -104,8 +105,8 @@
                                                     <color key="textColor" red="0.80847477791878175" green="0.80847477791878175" blue="0.80847477791878175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="@codepath" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de2-vy-fkk">
-                                                    <rect key="frame" x="161" y="5" width="78.5" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="@codepath" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de2-vy-fkk">
+                                                    <rect key="frame" x="191" y="5" width="78.5" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="xay-S9-hua"/>
                                                     </constraints>
@@ -116,13 +117,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="K8Y-5W-cTX" firstAttribute="top" secondItem="rbo-to-Yqo" secondAttribute="top" constant="4" id="29E-Rz-TzJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="Che-ap-9c2" secondAttribute="trailing" constant="8" id="6Cg-DR-kxz"/>
                                                 <constraint firstItem="Che-ap-9c2" firstAttribute="top" secondItem="K8Y-5W-cTX" secondAttribute="top" constant="-3" id="CDC-if-9L4"/>
                                                 <constraint firstItem="de2-vy-fkk" firstAttribute="top" secondItem="K8Y-5W-cTX" secondAttribute="top" constant="1" id="CTA-YI-HD7"/>
-                                                <constraint firstItem="de2-vy-fkk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K8Y-5W-cTX" secondAttribute="trailing" constant="8" id="Ltd-UC-BX6"/>
                                                 <constraint firstItem="Che-ap-9c2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="de2-vy-fkk" secondAttribute="trailing" constant="8" id="Pc9-If-55T"/>
-                                                <constraint firstItem="juA-g2-UgV" firstAttribute="top" secondItem="Che-ap-9c2" secondAttribute="bottom" constant="6" id="SAz-11-kW2"/>
-                                                <constraint firstItem="de2-vy-fkk" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="82" id="ZGR-fK-Oul"/>
+                                                <constraint firstItem="juA-g2-UgV" firstAttribute="top" secondItem="Che-ap-9c2" secondAttribute="bottom" constant="21" id="SAz-11-kW2"/>
+                                                <constraint firstItem="de2-vy-fkk" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="112" id="ZGR-fK-Oul"/>
                                                 <constraint firstAttribute="trailing" secondItem="Che-ap-9c2" secondAttribute="trailing" constant="8" id="Zqg-TK-LHf"/>
                                                 <constraint firstItem="juA-g2-UgV" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="15" id="f68-pi-HJk"/>
                                                 <constraint firstItem="XLz-uB-dgM" firstAttribute="leading" secondItem="rbo-to-Yqo" secondAttribute="leading" constant="14" id="hQe-N8-CWp"/>
@@ -130,7 +129,7 @@
                                                 <constraint firstItem="K8Y-5W-cTX" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="15" id="kYW-VY-9Th"/>
                                                 <constraint firstItem="juA-g2-UgV" firstAttribute="trailing" secondItem="rbo-to-Yqo" secondAttribute="trailingMargin" id="qqC-A8-KaZ"/>
                                                 <constraint firstItem="XLz-uB-dgM" firstAttribute="top" secondItem="rbo-to-Yqo" secondAttribute="top" constant="4" id="yL2-4B-KCI"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="juA-g2-UgV" secondAttribute="bottom" constant="16" id="yxo-EQ-lIz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="juA-g2-UgV" secondAttribute="bottom" constant="0.5" id="yxo-EQ-lIz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -187,9 +186,9 @@
         <!--Navigation Controller-->
         <scene sceneID="yjK-IK-9Sv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DJd-gK-P1P" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DJd-gK-P1P" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="3OI-Yk-JVF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3OI-Yk-JVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51764705882352935" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
