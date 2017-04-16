@@ -10,6 +10,7 @@ import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tweets = [Tweet]()
+    var user: User? = nil
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +21,33 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        //TwitterClient.sharedInstance?.currentAccount()
+        TwitterClient.sharedInstance?.currentAccount(success: {(user: User) -> () in
+            self.user = user
+            self.tableView.reloadData()
+        }, failure: { (error: NSError) -> () in
+            print(error.localizedDescription)
+        })
+        
+        
+        /*
+         func currentAccount(success: @escaping (User) -> (), failure: @escaping (NSError) -> ()){
+         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+         //print ("account: \(response)")
+         let userDictionary = response as! NSDictionary
+         let user = User(dictionary: userDictionary)
+         success(user)
+         //print ("name: \(user.name!)")
+         //print ("screenname: \(user.screenname!)")
+         //print ("profile url: \(user.profileUrl!)")
+         //print ("description:  \(user.tagline!)")
+         }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+         failure (error as NSError)
+         })
+         }
+ 
+ 
+ 
+ */
         TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -43,6 +70,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath ) as! TweetCell
          cell.tweet = tweets[indexPath.row]
+         cell.user = user
         return cell
     }
 
@@ -52,9 +80,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 100 
     }
     
+    @IBAction func onLogoutButton(_ sender: Any) {
+        TwitterClient.sharedInstance?.logout()
+        
+    }
 
     /*
     // MARK: - Navigation

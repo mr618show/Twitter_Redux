@@ -28,6 +28,7 @@ class User: NSObject {
         tagline = dictionary["description"] as? String as NSString?
     }
     static var _currentUser: User?
+    static let userDidLogoutNotification = "UserDidLogout"
     class var currentUser: User? {
         get {
             if _currentUser == nil {
@@ -48,10 +49,9 @@ class User: NSObject {
             let defaults = UserDefaults.standard
             if let user = user {
                 let data = try! JSONSerialization.data(withJSONObject: user.dictionary!, options: [])
-                
-                defaults.removeObject(forKey: "currentUserData")
+                defaults.set(data, forKey: "currentUserData")
             } else {
-                defaults.set(nil, forKey: "currentUserData")
+                defaults.removeObject(forKey: "currentUserData")
             }
             defaults.synchronize()
         }

@@ -38,6 +38,12 @@ class TwitterClient: BDBOAuth1SessionManager {
             self.loginFailure?(error as! NSError)
         })
     }
+    
+    func logout() {
+        User.currentUser = nil
+        deauthorize()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil)
+    }
     func handleOpenUrl(url: NSURL) {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken:  requestToken, success: { (accessToken:BDBOAuth1Credential?) -> Void in
@@ -74,10 +80,10 @@ class TwitterClient: BDBOAuth1SessionManager {
             let userDictionary = response as! NSDictionary
             let user = User(dictionary: userDictionary)
             success(user)
-            //print ("name: \(user.name!)")
-            //print ("screenname: \(user.screenname!)")
-            //print ("profile url: \(user.profileUrl!)")
-            //print ("description:  \(user.tagline!)")
+            print ("name: \(user.name!)")
+            print ("screenname: \(user.screenname!)")
+            print ("profile url: \(user.profileUrl!)")
+            print ("description:  \(user.tagline!)")
         }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
             failure (error as NSError)
         })

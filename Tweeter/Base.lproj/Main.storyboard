@@ -25,7 +25,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9r-h8-YUj">
                                 <rect key="frame" x="98" y="347" width="180" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.086206397495727116" green="0.92921270275758494" blue="0.94676831392455452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.51764705882352935" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Log in with Twitter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-54" y="136"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="FXb-ae-3AG">
             <objects>
-                <viewController id="EmF-Dn-zeS" customClass="TweetsViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsNavigationController" id="EmF-Dn-zeS" customClass="TweetsViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KJ9-IQ-4zK"/>
                         <viewControllerLayoutGuide type="bottom" id="pvb-H0-3Wx"/>
@@ -121,13 +121,14 @@
                                                 <constraint firstItem="de2-vy-fkk" firstAttribute="top" secondItem="K8Y-5W-cTX" secondAttribute="top" constant="1" id="CTA-YI-HD7"/>
                                                 <constraint firstItem="de2-vy-fkk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K8Y-5W-cTX" secondAttribute="trailing" constant="8" id="Ltd-UC-BX6"/>
                                                 <constraint firstItem="Che-ap-9c2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="de2-vy-fkk" secondAttribute="trailing" constant="8" id="Pc9-If-55T"/>
-                                                <constraint firstAttribute="trailing" secondItem="Che-ap-9c2" secondAttribute="trailing" constant="8" id="Ro2-s2-aQ7"/>
                                                 <constraint firstItem="juA-g2-UgV" firstAttribute="top" secondItem="Che-ap-9c2" secondAttribute="bottom" constant="6" id="SAz-11-kW2"/>
                                                 <constraint firstItem="de2-vy-fkk" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="82" id="ZGR-fK-Oul"/>
+                                                <constraint firstAttribute="trailing" secondItem="Che-ap-9c2" secondAttribute="trailing" constant="8" id="Zqg-TK-LHf"/>
                                                 <constraint firstItem="juA-g2-UgV" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="15" id="f68-pi-HJk"/>
                                                 <constraint firstItem="XLz-uB-dgM" firstAttribute="leading" secondItem="rbo-to-Yqo" secondAttribute="leading" constant="14" id="hQe-N8-CWp"/>
                                                 <constraint firstItem="juA-g2-UgV" firstAttribute="leading" secondItem="K8Y-5W-cTX" secondAttribute="leading" id="ipr-CA-bAm"/>
                                                 <constraint firstItem="K8Y-5W-cTX" firstAttribute="leading" secondItem="XLz-uB-dgM" secondAttribute="trailing" constant="15" id="kYW-VY-9Th"/>
+                                                <constraint firstItem="juA-g2-UgV" firstAttribute="trailing" secondItem="rbo-to-Yqo" secondAttribute="trailingMargin" id="qqC-A8-KaZ"/>
                                                 <constraint firstItem="XLz-uB-dgM" firstAttribute="top" secondItem="rbo-to-Yqo" secondAttribute="top" constant="4" id="yL2-4B-KCI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="juA-g2-UgV" secondAttribute="bottom" constant="16" id="yxo-EQ-lIz"/>
                                             </constraints>
@@ -138,6 +139,7 @@
                                             <outlet property="thumbImageView" destination="XLz-uB-dgM" id="qQW-mL-xAS"/>
                                             <outlet property="timestampLabel" destination="Che-ap-9c2" id="W0D-JO-XEv"/>
                                             <outlet property="tweetContentLabel" destination="juA-g2-UgV" id="6jr-xS-VXb"/>
+                                            <segue destination="HLf-UN-9NX" kind="show" id="xnF-i4-DcI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,7 +147,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="t7j-Z6-sHy"/>
+                    <navigationItem key="navigationItem" title="Home" id="t7j-Z6-sHy">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dfG-qr-nVT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onLogoutButton:" destination="EmF-Dn-zeS" id="Zx9-R9-shp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="h3F-Kw-HJz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="DZQ-mm-M3U" id="qCe-vn-1T6"/>
                     </connections>
@@ -177,9 +189,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DJd-gK-P1P" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3OI-Yk-JVF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="3OI-Yk-JVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.51764705882352935" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -37,7 +37,7 @@ class TweetCell: UITableViewCell {
     }
     
     var user: User! {
-        willSet {
+        didSet {
             nameLabel.text = user.name as String?
             screenNameLabel.text = user.screenname as String?
             self.thumbImageView.setImageWith(user.profileUrl as! URL)
