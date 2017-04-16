@@ -4,7 +4,7 @@ iOS bootcamp 2017 spring week 3 project
 
 This is an iOS application of basic twitter client exploring reading and writing to the authenticated [Twitter API](https://dev.twitter.com/rest/tools/console).
 
-Time spent: 16 hours spent in total
+Time spent: 23 hours spent in total
 
 Completed user stories:
 
@@ -13,7 +13,7 @@ Login page:
  * [x]Required: User can view last 20 tweets from their home timeline
  * [x]Required: The current signed in user will be persisted across restarts
  * [x]Required: In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp. 
- * [ ]Required: User can pull to refresh
+ * [x]Required: User can pull to refresh
  
  Tweet page: 
  * [ ]Required: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
