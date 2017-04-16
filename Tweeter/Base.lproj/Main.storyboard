@@ -53,7 +53,7 @@
                         <viewControllerLayoutGuide type="top" id="KJ9-IQ-4zK"/>
                         <viewControllerLayoutGuide type="bottom" id="pvb-H0-3Wx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="X1h-JS-wXC" customClass="TweetsView">
+                    <view key="view" contentMode="scaleToFill" id="X1h-JS-wXC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
