@@ -23,7 +23,7 @@ Login page:
  * [ ]Optional:  User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
  
  Compose page: 
-  * [ ]Required: User can compose a new tweet by tapping on a compose button.
+  * [x]Required: User can compose a new tweet by tapping on a compose button.
   * [ ]Optional:  When composing, you should have a countdown in the upper right for the tweet limit.
   * [ ]Optional:  After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
   
