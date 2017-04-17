@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -67,6 +67,34 @@ class DetailViewController: UIViewController {
         }, failure: { (error: NSError) in
             print ("error: \(error.localizedDescription)")
         })
+    }
+    
+    // Start Editing The Text Field
+    func textFieldDidBeginEditing(_ replyText: UITextField) {
+        moveTextField(replyText, moveDistance: -250, up: true)
+    }
+    
+    // Finish Editing The Text Field
+    func textFieldDidEndEditing(_ replyText: UITextField) {
+        moveTextField(replyText, moveDistance: -250, up: false)
+    }
+    
+    // Hide the keyboard when the return key pressed
+    func textFieldShouldReturn(_ replyText: UITextField) -> Bool {
+        replyText.resignFirstResponder()
+        return true
+    }
+    
+    // Move the text field in a pretty animation!
+    func moveTextField(_ replyText: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
     
     /*
