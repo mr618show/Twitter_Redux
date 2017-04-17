@@ -61,16 +61,12 @@ class TwitterClient: BDBOAuth1SessionManager {
         )
     }
     func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
-        
         get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response:Any?) -> Void in
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-            
             success(tweets)
-        
         }, failure: { (task:URLSessionDataTask?, error: Error) in
             failure(error as NSError)
-            
         })
     }
     
@@ -84,6 +80,15 @@ class TwitterClient: BDBOAuth1SessionManager {
             print ("screenname: \(user.screenname!)")
             print ("profile url: \(user.profileUrl!)")
             print ("description:  \(user.tagline!)")
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
+    
+    func tweet(text: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+        post("1.1/statuses/update.json?status=" + text, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+            success()
         }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
             failure (error as NSError)
         })

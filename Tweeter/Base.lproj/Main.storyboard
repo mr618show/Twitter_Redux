@@ -372,11 +372,15 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="Blz-4U-4AM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onTweetButton:" destination="0NF-ge-VPv" id="14j-Ng-My6"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="bwX-bc-d2I" id="s0i-h0-bgw"/>
                         <outlet property="thumImageView" destination="Cc2-hP-3NP" id="5AH-mI-OYy"/>
+                        <outlet property="tweetContent" destination="vgm-V1-2sG" id="o5q-U4-aQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnC-Wl-R0W" userLabel="First Responder" sceneMemberID="firstResponder"/>

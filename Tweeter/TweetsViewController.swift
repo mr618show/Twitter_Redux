@@ -71,7 +71,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
     }
     
     @IBAction func onNewButton(_ sender: UIBarButtonItem) {
-        //performSegue(withIdentifier: "newMessage", sender: nil)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let composeVC = mainStoryboard.instantiateViewController(withIdentifier: "ComposeVC") as! ComposeViewController
         self.present(composeVC, animated: true, completion: nil)
@@ -84,12 +83,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-//        if (segue.destination as! DetailViewController == nil)
-//        {
-//            return
-//        }
         if segue.destination is DetailViewController {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
