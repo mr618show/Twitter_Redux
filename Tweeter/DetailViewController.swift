@@ -50,6 +50,23 @@ class DetailViewController: UIViewController {
     }
     
 
+    @IBAction func onReplyButton(_ sender: UIButton) {
+    }
+    @IBAction func onRetweetButton(_ sender: UIButton) {
+        TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+            
+        }, failure: { (error: NSError) in
+            print ("error: \(error.localizedDescription)")
+        })
+    }
+    @IBAction func onFavButton(_ sender: UIButton) {
+        TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+            
+        }, failure: { (error: NSError) in
+            print ("error: \(error.localizedDescription)")
+        })
+    }
+    
     /*
     // MARK: - Navigation
 

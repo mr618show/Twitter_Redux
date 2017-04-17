@@ -11,6 +11,7 @@ import UIKit
 class Tweet: NSObject {
     var name: NSString?
     var screenname: NSString?
+    var id: NSString?
     var profileUrl: NSURL?
     var text: NSString?
     var timestamp: Date?
@@ -26,6 +27,7 @@ class Tweet: NSObject {
         }
 
         text = dictionary["text"] as? String as NSString?
+        id = dictionary["id_str"] as? String as NSString?
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favorites_count"] as? Int) ?? 0
         let timestampString = dictionary["created_at"] as? String
@@ -44,5 +46,6 @@ class Tweet: NSObject {
         }
         return tweets
     }
+    
 
 }

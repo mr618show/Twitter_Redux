@@ -23,7 +23,7 @@
 		A513D9BD1EA298D1001329F1 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9BC1EA298D1001329F1 /* TweetsViewController.swift */; };
 		A513D9BF1EA2A2BF001329F1 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9BE1EA2A2BF001329F1 /* TweetCell.swift */; };
 		A513D9C11EA3DF7C001329F1 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C01EA3DF7C001329F1 /* ComposeViewController.swift */; };
-		A513D9C31EA3DF9C001329F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */; };
+		A513D9CB1EA49ABB001329F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -494,7 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A513D9C31EA3DF9C001329F1 /* DetailViewController.swift in Sources */,
+				A513D9CB1EA49ABB001329F1 /* DetailViewController.swift in Sources */,
 				A513D9B71EA083B4001329F1 /* User.swift in Sources */,
 				A513D9BF1EA2A2BF001329F1 /* TweetCell.swift in Sources */,
 				A513D9B91EA083CD001329F1 /* Tweet.swift in Sources */,

@@ -234,6 +234,9 @@
                                     <constraint firstAttribute="height" constant="29" id="Zjb-es-f1g"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="reply"/>
+                                <connections>
+                                    <action selector="onReplyButton:" destination="HLf-UN-9NX" eventType="touchUpInside" id="Wh4-jA-psV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f24-tF-iia">
                                 <rect key="frame" x="119" y="294" width="83" height="29"/>
@@ -242,6 +245,9 @@
                                     <constraint firstAttribute="width" constant="83" id="ocp-hr-x5r"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="retweet"/>
+                                <connections>
+                                    <action selector="onRetweetButton:" destination="HLf-UN-9NX" eventType="touchUpInside" id="sCi-8V-7hO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-tL-i4a">
                                 <rect key="frame" x="214" y="294" width="83" height="29"/>
@@ -250,6 +256,9 @@
                                     <constraint firstAttribute="height" constant="29" id="AHF-Fs-E7A"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="heart"/>
+                                <connections>
+                                    <action selector="onFavButton:" destination="HLf-UN-9NX" eventType="touchUpInside" id="1FN-uv-tLZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

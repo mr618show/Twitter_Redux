@@ -95,5 +95,25 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure (error as NSError)
         })
     }
+    
+    func addRetweet(id: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+
+        post("1.1/statuses/retweet/" + id! + ".json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+            success()
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
+    
+    func addFavorites(id: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+        
+        post("1.1/favorites/create.json?id=" + id!, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+            success()
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
 
 }
