@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    @IBOutlet weak var replyText: UITextField!
     var tweet: Tweet!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class DetailViewController: UIViewController {
     
 
     @IBAction func onReplyButton(_ sender: UIButton) {
+        replyText.becomeFirstResponder()
     }
     @IBAction func onRetweetButton(_ sender: UIButton) {
         TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
