@@ -12,6 +12,7 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var thumImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tweetContent: UITextField!
+    
 
     override func viewDidLoad() {
     
@@ -33,6 +34,8 @@ class ComposeViewController: UIViewController {
 
     @IBAction func onTweetButton(_ sender: UIBarButtonItem) {
         TwitterClient.sharedInstance?.tweet(text: self.tweetContent.text!, success: {
+            print ("post")
+             self.dismiss(animated: true, completion: nil)
         }, failure: { (error: NSError) in
             print("error: \(error.localizedDescription)")
         })

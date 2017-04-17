@@ -85,8 +85,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func tweet(text: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
-        post("1.1/statuses/update.json?status=" + text, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+    func tweet(text: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+        
+        let escapedAddress = text.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        post("1.1/statuses/update.json?status=" + escapedAddress!, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
             //print ("account: \(response)")
             success()
         }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
