@@ -147,6 +147,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onNewButton:" destination="EmF-Dn-zeS" id="E9J-Ac-akE"/>
+                                <segue destination="asW-i2-ZKA" kind="presentation" id="Mf7-X4-fJe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -254,6 +255,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QgF-dU-nFN" firstAttribute="top" secondItem="AEk-3b-0WY" secondAttribute="bottom" constant="30" id="8Ry-1Z-DtZ"/>
                             <constraint firstItem="tvU-yo-hCl" firstAttribute="leading" secondItem="394-CM-IXI" secondAttribute="trailing" constant="43" id="B1x-JK-vgb"/>
@@ -363,6 +365,9 @@
                     <navigationItem key="navigationItem" id="18t-CS-129">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="EXg-bd-QAl">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onCancelButton:" destination="0NF-ge-VPv" id="nAT-D0-dyF"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="Blz-4U-4AM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -375,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnC-Wl-R0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536.8000000000002" y="612.14392803598207"/>
+            <point key="canvasLocation" x="3238" y="611"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x6m-ab-yVZ">
@@ -394,7 +399,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jux-gJ-B8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597.5999999999999" y="612.14392803598207"/>
+            <point key="canvasLocation" x="2564" y="612"/>
         </scene>
     </scenes>
     <resources>

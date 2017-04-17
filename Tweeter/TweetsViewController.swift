@@ -86,11 +86,17 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//        if (segue.destination as! DetailViewController == nil)
+//        {
+//            return
+//        }
+        if segue.destination is DetailViewController {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
         let tweet = tweets[indexPath!.row]
         let detailViewController = segue.destination as! DetailViewController
         detailViewController.tweet = tweet
+        }
         
     }
     
