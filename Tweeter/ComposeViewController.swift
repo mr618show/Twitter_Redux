@@ -17,6 +17,13 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
     
         super.viewDidLoad()
+        
+        //Setting Nav bar color
+        let twitterColor = UIColor(red: 29/256, green: 202/256, blue: 255/256, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = twitterColor
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         self.nameLabel.text = User.currentUser?.name as String?
         thumImageView.setImageWith(User.currentUser!.profileUrl as! URL)
 
@@ -35,7 +42,7 @@ class ComposeViewController: UIViewController {
     @IBAction func onTweetButton(_ sender: UIBarButtonItem) {
         TwitterClient.sharedInstance?.tweet(text: self.tweetContent.text!, success: {
             print ("post")
-             self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }, failure: { (error: NSError) in
             print("error: \(error.localizedDescription)")
         })

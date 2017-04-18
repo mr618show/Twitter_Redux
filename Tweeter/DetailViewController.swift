@@ -36,7 +36,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         formatter.dateFormat = "MM/dd/yy, h:mm a"
         self.timestampLabel.text = formatter.string(from: tweet.timestamp!)
         
-
         let retweetCount = String(tweet.retweetCount)
         self.retweetCountLabel.text = retweetCount
         let favoritesCount = String(tweet.favoritesCount)
@@ -95,6 +94,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == replyText {
+            textField.resignFirstResponder()
+            TwitterClient.sharedInstance?.tweet(text: self.replyText.text!, success: {
+                print ("post")
+                self.dismiss(animated: true, completion: nil)
+            }, failure: { (error: NSError) in
+                print("error: \(error.localizedDescription)")
+            })
+            return false
+        }
+        return true
     }
     
     /*

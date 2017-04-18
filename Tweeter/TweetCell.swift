@@ -35,8 +35,9 @@ class TweetCell: UITableViewCell {
             else {
                 timestampLabel.text = String(Int(round(difference / 60))) + "m"
             }
-            
         }
+        
+        
     }
     
 
