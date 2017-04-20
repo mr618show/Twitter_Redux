@@ -106,6 +106,23 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func replyTweet(tweet: String, tweetID: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+        print("reply twetID: \(tweetID)")
+        
+        post("1.1/statuses/update.json",
+             parameters: ["status":tweet, "in_reply_to_status_id":tweetID],
+             progress: nil,
+             success: { (_, response) in
+                
+                print("reply response: \(response)")
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
+                
+        }) { (task, error) in
+            failure(error)
+        }
+    }
+    
     func addFavorites(id: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
         
         post("1.1/favorites/create.json?id=" + id!, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in

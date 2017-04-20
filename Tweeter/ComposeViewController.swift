@@ -13,7 +13,10 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tweetContent: UITextField!
     
-
+    @IBOutlet weak var countDownLabel: UILabel!
+    var isReply: Bool = false
+    var tweetID: Int?
+    var replyTo: String?
     override func viewDidLoad() {
     
         super.viewDidLoad()
@@ -40,21 +43,31 @@ class ComposeViewController: UIViewController {
     }
 
     @IBAction func onTweetButton(_ sender: UIBarButtonItem) {
-        TwitterClient.sharedInstance?.tweet(text: self.tweetContent.text!, success: {
-            print ("post")
-            self.dismiss(animated: true, completion: nil)
-        }, failure: { (error: NSError) in
-            print("error: \(error.localizedDescription)")
-        })
+        if let text = tweetContent.text {
+            if isReply {
+                TwitterClient.sharedInstance?.replyTweet(
+                    tweet: text,
+                    tweetID: tweetID!,
+                    success: { newTweet in
+                        self.dismiss(animated: true, completion: nil)
+                        
+                }, failure: { error in
+                    print("error: \(error.localizedDescription)")
+                })
+                
+            }else {
+                TwitterClient.sharedInstance?.tweet(text: self.tweetContent.text!, success: {
+                    print ("posted!")
+                    self.dismiss(animated: true, completion: nil)
+                }, failure: { (error: NSError) in
+                    print("error: \(error.localizedDescription)")
+                })
+            }
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
+
+
+

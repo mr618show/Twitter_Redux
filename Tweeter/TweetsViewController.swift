@@ -44,7 +44,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 func refreshControlAction(_ refreshControl: UIRefreshControl) {
     
     TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
+
         self.tweets = tweets
+        for tweet in tweets {
+            print (tweet)
+        }
         self.tableView.reloadData()
     }, failure: { (error: NSError) -> () in
         print(error.localizedDescription)

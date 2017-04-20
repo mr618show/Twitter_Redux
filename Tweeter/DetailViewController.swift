@@ -55,6 +55,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func onRetweetButton(_ sender: UIButton) {
         TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+            self.retweetCountLabel.text = "\(self.tweet.retweetCount + 1)"
             
         }, failure: { (error: NSError) in
             print ("error: \(error.localizedDescription)")
@@ -62,6 +63,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func onFavButton(_ sender: UIButton) {
         TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+            self.favoriteCountLabel.text = "\(self.tweet.favoritesCount + 1)"
             
         }, failure: { (error: NSError) in
             print ("error: \(error.localizedDescription)")
