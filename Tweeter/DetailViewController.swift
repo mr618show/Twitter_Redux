@@ -72,12 +72,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     // Start Editing The Text Field
     func textFieldDidBeginEditing(_ replyText: UITextField) {
-        moveTextField(replyText, moveDistance: -250, up: true)
+        moveTextField(replyText, moveDistance: -260, up: true)
     }
     
     // Finish Editing The Text Field
     func textFieldDidEndEditing(_ replyText: UITextField) {
-        moveTextField(replyText, moveDistance: -250, up: false)
+        moveTextField(replyText, moveDistance: -260, up: false)
     }
     
     // Hide the keyboard when the return key pressed
