@@ -26,6 +26,9 @@
 		A513D9CB1EA49ABB001329F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */; };
 		A52D72151EA9866F004AC766 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D72131EA9866F004AC766 /* HamburgerViewController.swift */; };
 		A52D72161EA9866F004AC766 /* HamburgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52D72141EA9866F004AC766 /* HamburgerViewController.xib */; };
+		A52D72181EA9DB5F004AC766 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D72171EA9DB5F004AC766 /* MenuViewController.swift */; };
+		A52D721A1EAA8B3B004AC766 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D72191EAA8B3B004AC766 /* ProfileViewController.swift */; };
+		A52D721C1EAA8B4B004AC766 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D721B1EAA8B4B004AC766 /* MentionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A52D72131EA9866F004AC766 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		A52D72141EA9866F004AC766 /* HamburgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerViewController.xib; sourceTree = "<group>"; };
+		A52D72171EA9DB5F004AC766 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A52D72191EAA8B3B004AC766 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A52D721B1EAA8B4B004AC766 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
 		A549E02D73FD2D6317DDA379 /* Pods_TweeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TweeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BACE0788EBFCF3F8C1F3FE14 /* Pods-TweeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TweeterTests/Pods-TweeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB57987C4CE63BBEF5B06602 /* Pods-TweeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TweeterTests/Pods-TweeterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +200,9 @@
 				A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */,
 				A52D72131EA9866F004AC766 /* HamburgerViewController.swift */,
 				A52D72141EA9866F004AC766 /* HamburgerViewController.xib */,
+				A52D72171EA9DB5F004AC766 /* MenuViewController.swift */,
+				A52D72191EAA8B3B004AC766 /* ProfileViewController.swift */,
+				A52D721B1EAA8B4B004AC766 /* MentionsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -505,7 +514,10 @@
 				A513D9B71EA083B4001329F1 /* User.swift in Sources */,
 				A513D9BF1EA2A2BF001329F1 /* TweetCell.swift in Sources */,
 				A513D9B91EA083CD001329F1 /* Tweet.swift in Sources */,
+				A52D72181EA9DB5F004AC766 /* MenuViewController.swift in Sources */,
+				A52D721C1EAA8B4B004AC766 /* MentionsViewController.swift in Sources */,
 				A513D9C11EA3DF7C001329F1 /* ComposeViewController.swift in Sources */,
+				A52D721A1EAA8B3B004AC766 /* ProfileViewController.swift in Sources */,
 				A513D9381E9EFFD8001329F1 /* LoginViewController.swift in Sources */,
 				A513D9BD1EA298D1001329F1 /* TweetsViewController.swift in Sources */,
 				A513D9BB1EA1A15A001329F1 /* TwitterClient.swift in Sources */,

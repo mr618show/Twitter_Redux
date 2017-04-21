@@ -15,6 +15,12 @@ class HamburgerViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     
     var originalLeftMargin: CGFloat!
+    var menuViewController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            menuView.addSubview(menuViewController.view)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,11 +42,15 @@ class HamburgerViewController: UIViewController {
             leftMargin.constant = originalLeftMargin + translation.x
             
         } else if sender.state == .ended {
-            if velocity.x > 0 {
-                leftMargin.constant = self.view.frame.size.width - 50
-            } else {
-                leftMargin.constant = 0
-            }
+            UIView.animate(withDuration: 0.3, animations: {
+                if velocity.x > 0 {
+                    self.leftMargin.constant = self.view.frame.size.width - 150
+                } else {
+                    self.leftMargin.constant = 0
+                }
+                self.view.layoutIfNeeded()
+            })
+            
             
         }
     }
