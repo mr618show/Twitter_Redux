@@ -46,6 +46,59 @@
             </objects>
             <point key="canvasLocation" x="-54" y="136"/>
         </scene>
+        <!--Hamburger View Controller-->
+        <scene sceneID="xWq-et-2nh">
+            <objects>
+                <viewController id="XXp-Vx-kgF" customClass="HamburgerViewController" customModule="Tweeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xKG-I9-2FI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fi2-No-pWP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sJu-Sc-eC1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA8-jC-PMT" userLabel="MenuView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.086206397500000004" green="0.92921270280000001" blue="0.94676831390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWQ-yp-CLW" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="D2i-vx-PUk" appends="YES" id="vg3-G9-koY"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TA8-jC-PMT" firstAttribute="leading" secondItem="sJu-Sc-eC1" secondAttribute="leading" id="6Vc-fA-fec"/>
+                            <constraint firstItem="Fi2-No-pWP" firstAttribute="top" secondItem="TA8-jC-PMT" secondAttribute="bottom" id="JGE-yl-j8L"/>
+                            <constraint firstItem="Fi2-No-pWP" firstAttribute="top" secondItem="IWQ-yp-CLW" secondAttribute="bottom" id="JzH-cg-Jbw"/>
+                            <constraint firstItem="IWQ-yp-CLW" firstAttribute="top" secondItem="sJu-Sc-eC1" secondAttribute="top" id="ZGQ-oy-g1M"/>
+                            <constraint firstItem="IWQ-yp-CLW" firstAttribute="width" secondItem="sJu-Sc-eC1" secondAttribute="width" id="dJP-qM-NwT"/>
+                            <constraint firstItem="IWQ-yp-CLW" firstAttribute="leading" secondItem="sJu-Sc-eC1" secondAttribute="leading" id="im1-Fw-Cxz"/>
+                            <constraint firstItem="TA8-jC-PMT" firstAttribute="top" secondItem="sJu-Sc-eC1" secondAttribute="top" id="jsv-FF-JB1"/>
+                            <constraint firstAttribute="trailing" secondItem="TA8-jC-PMT" secondAttribute="trailing" id="yri-uO-GVB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YtJ-BU-i9A"/>
+                    <connections>
+                        <outlet property="contentView" destination="IWQ-yp-CLW" id="RJY-QK-7tu"/>
+                        <outlet property="leftMargin" destination="im1-Fw-Cxz" id="zTi-LS-GW4"/>
+                        <outlet property="menuView" destination="TA8-jC-PMT" id="FsU-VO-KjD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhw-cd-fqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="D2i-vx-PUk">
+                    <connections>
+                        <action selector="onPanGesture:" destination="XXp-Vx-kgF" id="Hr7-Ko-g7h"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1260" y="-644.52773613193403"/>
+        </scene>
         <!--Home-->
         <scene sceneID="FXb-ae-3AG">
             <objects>
@@ -349,14 +402,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqi-J4-hRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597.5999999999999" y="-234.33283358320841"/>
+            <point key="canvasLocation" x="3536.8000000000002" y="-234.33283358320841"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yjK-IK-9Sv">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DJd-gK-P1P" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="3OI-Yk-JVF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3OI-Yk-JVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51764705882352935" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -461,7 +514,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="asW-i2-ZKA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="BcX-OP-Smp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BcX-OP-Smp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.51764705879999995" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -474,6 +527,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jux-gJ-B8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2564" y="612"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1X5-IE-FIi">
+            <objects>
+                <navigationController storyboardIdentifier="HamburgerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="106-S1-Pky" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbk-UZ-XDX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XXp-Vx-kgF" kind="relationship" relationship="rootViewController" id="QFS-Ls-cFg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOh-Ud-7QS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="320.80000000000001" y="-644.52773613193403"/>
         </scene>
     </scenes>
     <resources>

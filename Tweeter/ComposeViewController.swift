@@ -100,13 +100,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         }
         self.updateCharacterCount()
     }
-    
+}
 
-    
-  
-    }
-    
-    
+
 
 
 
