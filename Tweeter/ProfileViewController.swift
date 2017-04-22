@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
          tableView.dataSource = self
          tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+
 
         // Do any additional setup after loading the view.
         
@@ -61,7 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return tweets.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath ) as! TweetCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTweetCell", for: indexPath ) as! TweetCell
         cell.tweet = tweets[indexPath.row]
         //cell.user = user
         return cell

@@ -25,7 +25,6 @@ class Tweet: NSObject {
         if profileUrlString == profileUrlString {
             profileUrl = NSURL(string: profileUrlString!)
         }
-
         text = dictionary["text"] as? String as NSString?
         id = dictionary["id_str"] as? String as NSString?
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0

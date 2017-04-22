@@ -35,7 +35,7 @@ class User: NSObject {
         }
         
         
-        tagline = dictionary["description"] as? String as NSString?
+       tagline = dictionary["description"] as? String as NSString?
        followersCount = (dictionary["followers_count"] as? Int) ?? 0
        followingCount = (dictionary["friends_count"] as? Int) ?? 0
     
