@@ -21,6 +21,13 @@ class HamburgerViewController: UIViewController {
             menuView.addSubview(menuViewController.view)
         }
     }
+    
+    var contentController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            contentView.addSubview(contentController.view)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

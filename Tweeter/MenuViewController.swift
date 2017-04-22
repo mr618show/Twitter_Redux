@@ -28,10 +28,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let profileNavController = storyboard.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
         let mentionsNavController = storyboard.instantiateViewController(withIdentifier: "MentionsNC") as! UINavigationController
         
-        navControllers.append(tweetsNavController)
         navControllers.append(profileNavController)
+        navControllers.append(tweetsNavController)
         navControllers.append(mentionsNavController)
-        //hamburgerController.contentController = tweetsNavController
+        hamburgerController.contentController = tweetsNavController
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +47,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.backgroundColor = twitterColor
         cell.textLabel?.text = menuSections[indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        hamburgerController.contentController = navControllers[indexPath.row]
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0

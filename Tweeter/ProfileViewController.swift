@@ -8,17 +8,63 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+ 
+    @IBOutlet weak var headerImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followerCountLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    var tweets = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
+         tableView.dataSource = self
+         tableView.delegate = self
 
         // Do any additional setup after loading the view.
+        
+        self.nameLabel.text = User.currentUser?.name as String?
+        
+        if let screenName = User.currentUser?.screenname {
+            self.screenNameLabel.text = "@ \(screenName)"
+        }
+        //self.screenNameLabel.text = String("@")! + (User.currentUser?.screenname as String?)!
+        
+        if let followers = User.currentUser?.followersCount {
+            self.followerCountLabel.text = "\(followers)"
+        }
+        if let friends = User.currentUser?.followingCount{
+            followingCountLabel.text = "\(friends)"
+        }
+        
+        profileImage.setImageWith(User.currentUser!.profileUrl as! URL)
+        headerImage.setImageWith(User.currentUser!.headerUrl as! URL)
+        
+        TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+        }, failure: { (error: NSError) -> () in
+            print(error.localizedDescription)
+        })
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath ) as! TweetCell
+        cell.tweet = tweets[indexPath.row]
+        //cell.user = user
+        return cell
     }
     
 
