@@ -24,14 +24,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // Do any additional setup after loading the view.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tweetsNavController = storyboard.instantiateViewController(withIdentifier: "TweetsNC") as! UINavigationController
+
         let profileNavController = storyboard.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
+        let tweetsNavController = storyboard.instantiateViewController(withIdentifier: "TweetsNC") as! UINavigationController
         let mentionsNavController = storyboard.instantiateViewController(withIdentifier: "MentionsNC") as! UINavigationController
         
         navControllers.append(profileNavController)
         navControllers.append(tweetsNavController)
         navControllers.append(mentionsNavController)
-        hamburgerController.contentController = tweetsNavController
+        hamburgerController.contentController = profileNavController
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,8 +51,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         hamburgerController.contentController = navControllers[indexPath.row]
+        
+        UIView.animate(withDuration: 0.3) { 
+            self.hamburgerController.leftMargin.constant = 0
+        }
+        
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
