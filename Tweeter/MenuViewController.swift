@@ -53,7 +53,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: true)
         hamburgerController.contentController = navControllers[indexPath.row]
         
-        UIView.animate(withDuration: 0.3) { 
+        UIView.animate(withDuration: 0.5) {
             self.hamburgerController.leftMargin.constant = 0
         }
         
