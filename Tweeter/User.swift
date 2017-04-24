@@ -40,6 +40,17 @@ class User: NSObject {
        followingCount = (dictionary["friends_count"] as? Int) ?? 0
     
     }
+    
+    class func showUser(_ screenName: String?, success: @escaping (User) -> (), failure: @escaping (NSError) -> ()){
+        TwitterClient.sharedInstance?.userWithScreenName(screenName: screenName, success: { (user: User) -> () in
+            
+        }, failure: { (error: NSError) -> Void in
+            print ("error: \(error.localizedDescription)")
+          
+        })
+        //TwitterClient.sharedInstance?.userWithScreenName(screenName, completion: completion)
+    }
+    
     static var _currentUser: User?
     static let userDidLogoutNotification = "UserDidLogout"
     class var currentUser: User? {

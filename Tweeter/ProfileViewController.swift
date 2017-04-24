@@ -19,32 +19,35 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var tweets = [Tweet]()
+    var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
-         tableView.dataSource = self
-         tableView.delegate = self
+        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-
-
-        // Do any additional setup after loading the view.
+   
+      
+        if (user == nil) {
+            user = User.currentUser
+        }
+      
+        self.nameLabel.text = user?.name as String?
         
-        self.nameLabel.text = User.currentUser?.name as String?
-        
-        if let screenName = User.currentUser?.screenname {
+        if let screenName = user?.screenname {
             self.screenNameLabel.text = "@ \(screenName)"
         }
-        //self.screenNameLabel.text = String("@")! + (User.currentUser?.screenname as String?)!
         
-        if let followers = User.currentUser?.followersCount {
+        if let followers = user?.followersCount {
             self.followerCountLabel.text = "\(followers)"
         }
-        if let friends = User.currentUser?.followingCount{
+        if let friends = user?.followingCount{
             followingCountLabel.text = "\(friends)"
         }
         
-        profileImage.setImageWith(User.currentUser!.profileUrl as! URL)
-        headerImage.setImageWith(User.currentUser!.headerUrl as! URL)
+        profileImage.setImageWith(user!.profileUrl as! URL)
+        headerImage.setImageWith(user!.headerUrl as! URL)
         
         TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
@@ -53,7 +56,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             print(error.localizedDescription)
         })
 
+
     }
+  
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

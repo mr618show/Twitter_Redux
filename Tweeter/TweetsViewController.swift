@@ -8,9 +8,10 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate , UIGestureRecognizerDelegate {
     var tweets = [Tweet]()
     var refreshControl: UIRefreshControl!
+
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         //Setting Nav bar color
@@ -68,9 +71,9 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath ) as! TweetCell
          cell.tweet = tweets[indexPath.row]
-         //cell.user = user
         return cell
     }
+    
 
 
     

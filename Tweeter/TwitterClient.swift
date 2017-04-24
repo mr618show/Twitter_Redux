@@ -97,6 +97,32 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+   /* func userWithScreenName(_ screenName: String!, completion: @escaping (_ user: User?, _ error: Error?) -> ()) {
+        
+        
+        get("/1.1/users/show.json",
+            parameters: parameters,
+            success: { task: URLSessionDataTask, response: Any?) -> Void in
+                let userDictionary = response as! NSDictionary
+                let user = User(dictionary: userDictionary)
+                completion(user, nil)
+        }, failure:{ task: URLSessionDataTask, error: Error?) -> Void in
+            completion(nil, error)
+        })
+    }
+    */
+    func userWithScreenName(screenName: String!, success: @escaping (User) -> (), failure: @escaping (NSError) -> ()){
+        
+        get("1.1/users/show.json?screen_name=" + screenName!, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+                let userDictionary = response as! NSDictionary
+                let user = User(dictionary: userDictionary)
+                success(user)
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
+    
     func tweet(text: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
         
         let escapedAddress = text.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)

@@ -3,7 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TwitterClient.homeTimeline(success : ([Tweet]) -&gt; (), failure : (NSError) -&gt; ()) -&gt; ():TwitterClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isAuthorized">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TweetCell.awakeFromNib() -&gt; ():TweetCell.swift">
+      </ContextState>
+      <ContextState
          contextName = "TwitterClient.tweet(text : String, success : () -&gt; (), failure : (NSError) -&gt; ()) -&gt; ():TwitterClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ProfileViewController.viewDidLoad() -&gt; ():ProfileViewController.swift">
       </ContextState>
       <ContextState
          contextName = "TweetsViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():TweetsViewController.swift">
@@ -14,29 +28,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DetailViewController.favoriteCountLabel.getter:DetailViewController.swift">
+         contextName = "DetailViewController.TappedOnImage(sender : UITapGestureRecognizer) -&gt; ():DetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tweet.retweetCount">
-            </PersistentString>
-            <PersistentString
-               value = "tweet.favoritesCount">
-            </PersistentString>
-            <PersistentString
-               value = "dictionary[&quot;favourites_count&quot;]">
+               value = "self.storyboard">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TwitterClient.(currentAccount(success : (User) -&gt; (), failure : (NSError) -&gt; ()) -&gt; ()).(closure #1):TwitterClient.swift">
-      </ContextState>
-      <ContextState
-         contextName = "TwitterClient.homeTimeline(success : ([Tweet]) -&gt; (), failure : (NSError) -&gt; ()) -&gt; ():TwitterClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.isAuthorized">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "TwitterClient.(tweet(text : String, success : () -&gt; (), failure : (NSError) -&gt; ()) -&gt; ()).(closure #2):TwitterClient.swift">
       </ContextState>
       <ContextState
          contextName = "LoginViewController.(onLoginButton(Any) -&gt; ()).(closure #1):LoginViewController.swift">
@@ -47,18 +47,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+         contextName = "LoginViewController.(onLoginButton(AnyObject) -&gt; ()).(closure #1):LoginViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "TweetCell.tweet.didset:TweetCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tweet">
-            </PersistentString>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "DetailViewController.(TappedOnImage(sender : UITapGestureRecognizer) -&gt; ()).(closure #1):DetailViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MentionsViewController.(viewDidLoad() -&gt; ()).(closure #1):MentionsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ProfileViewController.(viewDidLoad() -&gt; ()).(closure #1):ProfileViewController.swift">
       </ContextState>
       <ContextState
          contextName = "Tweet.init(dictionary : NSDictionary) -&gt; Tweet:Tweet.swift">
@@ -80,6 +78,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TweetCell.tweet.didset:TweetCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet">
+            </PersistentString>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TweetsViewController.(viewDidLoad() -&gt; ()).(closure #1):TweetsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(UIApplication, didFinishLaunchingWithOptions : [UIApplicationLaunchOptionsKey : Any]?) -&gt; Bool:AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DetailViewController.favoriteCountLabel.getter:DetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet.retweetCount">
+            </PersistentString>
+            <PersistentString
+               value = "tweet.favoritesCount">
+            </PersistentString>
+            <PersistentString
+               value = "dictionary[&quot;favourites_count&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TwitterClient.(homeTimeline(success : ([Tweet]) -&gt; (), failure : (NSError) -&gt; ()) -&gt; ()).(closure #2):TwitterClient.swift">
          <PersistentStrings>
             <PersistentString
@@ -88,13 +117,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TwitterClient.(tweet(text : String, success : () -&gt; (), failure : (NSError) -&gt; ()) -&gt; ()).(closure #2):TwitterClient.swift">
+         contextName = "TwitterClient.(currentAccount(success : (User) -&gt; (), failure : (NSError) -&gt; ()) -&gt; ()).(closure #1):TwitterClient.swift">
       </ContextState>
       <ContextState
          contextName = "LoginViewController.onLoginButton(AnyObject) -&gt; ():LoginViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "LoginViewController.(onLoginButton(AnyObject) -&gt; ()).(closure #1):LoginViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

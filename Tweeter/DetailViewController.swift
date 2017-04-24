@@ -41,7 +41,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         let favoritesCount = String(tweet.favoritesCount)
         self.favoriteCountLabel.text = favoritesCount
         thumbImageView.setImageWith(tweet.profileUrl as! URL)
-        
+        thumbImageView?.isUserInteractionEnabled = true
+        let tapped:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.TappedOnImage))
+        tapped.numberOfTapsRequired = 1
+        thumbImageView?.addGestureRecognizer(tapped)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +71,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }, failure: { (error: NSError) in
             print ("error: \(error.localizedDescription)")
         })
+    }
+    
+    func TappedOnImage(sender: UITapGestureRecognizer){
+        let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "profileVC") as! ProfileViewController
+        
+        TwitterClient.sharedInstance?.userWithScreenName(screenName: tweet.screenname as String?, success: { (user) in
+            profileVC.user = user
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }) { (error) in
+            print ("error: \(error.localizedDescription)")
+        }
+
     }
     
     // Start Editing The Text Field
