@@ -30,7 +30,7 @@ class User: NSObject {
         }
         
         let headerUrlString = dictionary["profile_background_image_url_https"] as? String
-        if headerUrlString == headerUrlString {
+        if headerUrlString != nil {
             headerUrl = NSURL(string: headerUrlString!)
         }
         

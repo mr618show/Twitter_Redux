@@ -196,16 +196,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaj-Hl-AIN">
-                                                    <rect key="frame" x="81" y="58" width="86" height="36"/>
-                                                    <state key="normal" title="Button" image="replyAction"/>
+                                                    <rect key="frame" x="81" y="58" width="60" height="36"/>
+                                                    <state key="normal" title="      " image="replyAction"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXX-g1-P0Q">
-                                                    <rect key="frame" x="187" y="58" width="91" height="36"/>
-                                                    <state key="normal" title="Button" image="retweetAction"/>
+                                                    <rect key="frame" x="161" y="58" width="65" height="36"/>
+                                                    <state key="normal" title="      " image="retweetAction"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGT-rF-dws">
-                                                    <rect key="frame" x="298" y="58" width="81" height="36"/>
-                                                    <state key="normal" title="Button" image="likeAction"/>
+                                                    <rect key="frame" x="246" y="58" width="55" height="36"/>
+                                                    <state key="normal" title="      " image="likeAction"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
