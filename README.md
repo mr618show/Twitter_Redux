@@ -1,10 +1,10 @@
-# Twitty
+# Twitter_Redux
 iOS bootcamp 2017 spring week 4 project
 
 
 This is an iOS application of basic twitter client exploring reading and writing to the authenticated [Twitter API](https://dev.twitter.com/rest/tools/console).
 
-Time spent: 10 hours spent in total
+Time spent: 20 hours spent in total
 
 Completed user stories:
 
