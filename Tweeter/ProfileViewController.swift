@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         profileImage.setImageWith(user!.profileUrl as! URL)
         headerImage.setImageWith(user!.headerUrl as! URL)
         
-        TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
+        TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname as String!, success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
         }, failure: { (error: NSError) -> () in
