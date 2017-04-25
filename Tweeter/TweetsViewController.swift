@@ -12,16 +12,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweets = [Tweet]()
     var refreshControl: UIRefreshControl!
 
-
-    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
     
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         //Setting Nav bar color
@@ -40,14 +37,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }, failure: { (error: NSError) -> () in
             print(error.localizedDescription)
         })
-        
-        // Do any additional setup after loading the view.
     }
 
 func refreshControlAction(_ refreshControl: UIRefreshControl) {
     
     TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
-
         self.tweets = tweets
         for tweet in tweets {
             print (tweet)
@@ -86,7 +80,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let composeVC = mainStoryboard.instantiateViewController(withIdentifier: "ComposeVC") as! ComposeViewController
         self.present(composeVC, animated: true, completion: nil)
-        
     }
     
 
@@ -102,7 +95,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         let detailViewController = segue.destination as! DetailViewController
         detailViewController.tweet = tweet
         }
-        
     }
     
 

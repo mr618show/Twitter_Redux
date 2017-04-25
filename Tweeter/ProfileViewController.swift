@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: TweetsViewController {
 
  
     @IBOutlet weak var headerImage: UIImageView!
@@ -17,8 +17,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    var tweets = [Tweet]()
+
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +26,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-   
-      
+        
+        
         if (user == nil) {
             user = User.currentUser
+            self.title = user.name as String?
         }
-      
+        
+        self.title = user?.name as String?
         self.nameLabel.text = user?.name as String?
         
         if let screenName = user?.screenname {
             self.screenNameLabel.text = "@ \(screenName)"
         }
-        
         if let followers = user?.followersCount {
             self.followerCountLabel.text = "\(followers)"
         }
@@ -50,34 +50,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if user.headerUrl != nil {
             headerImage.setImageWith(user!.headerUrl as! URL)
         }
-        
         TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname as String!, success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
         }, failure: { (error: NSError) -> () in
             print(error.localizedDescription)
         })
-
-
     }
   
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTweetCell", for: indexPath ) as! TweetCell
         cell.tweet = tweets[indexPath.row]
         //cell.user = user
         return cell
     }
-    
+ 
 
     /*
     // MARK: - Navigation
