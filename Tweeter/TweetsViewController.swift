@@ -43,9 +43,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
     
     TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
         self.tweets = tweets
-        for tweet in tweets {
-            print (tweet)
-        }
         self.tableView.reloadData()
     }, failure: { (error: NSError) -> () in
         print(error.localizedDescription)
@@ -68,9 +65,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         return cell
     }
     
-
-
-    
     @IBAction func onLogoutButton(_ sender: UIBarButtonItem) {
         TwitterClient.sharedInstance?.logout()
         
@@ -81,8 +75,6 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         let composeVC = mainStoryboard.instantiateViewController(withIdentifier: "ComposeVC") as! ComposeViewController
         self.present(composeVC, animated: true, completion: nil)
     }
-    
-
     
     // MARK: - Navigation
 
@@ -96,6 +88,4 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         detailViewController.tweet = tweet
         }
     }
-    
-
 }

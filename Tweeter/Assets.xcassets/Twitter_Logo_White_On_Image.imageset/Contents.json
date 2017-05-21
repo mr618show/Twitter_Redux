@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Twitter_Logo_White_On_Image.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "likeActionOn.png",
       "scale" : "2x"
     },
     {

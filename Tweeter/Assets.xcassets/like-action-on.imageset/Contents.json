@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "like-action-on.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "retweetActionOn.png",
       "scale" : "2x"
     },
     {
