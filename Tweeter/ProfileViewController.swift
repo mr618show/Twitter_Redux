@@ -21,11 +21,15 @@ class ProfileViewController: TweetsViewController {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     
-    
     @IBOutlet weak var headerBlurBackgroundHolder: UIImageView!
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
+    
+
+    
+    
+    
     var user : User!
     var headerBlurImageView: UIImageView?
     var headerImageView: UIImageView?

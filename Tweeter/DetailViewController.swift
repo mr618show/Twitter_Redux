@@ -19,17 +19,23 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
     @IBOutlet weak var replyText: UITextField!
+    
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favButton: UIButton!
+    
+    
     var tweet: Tweet!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        let name = tweet.name as? String
+        let name = tweet.name as String?
         self.nameLabel.text = name
-        let screenname = tweet.screenname as? String
+        let screenname = tweet.screenname as String?
         self.screenNameLabel.text = screenname
-        let content = tweet.text as? String
+        let content = tweet.text as String?
         self.tweetContentLabel.text = content
         
         let formatter = DateFormatter()
@@ -40,7 +46,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         self.retweetCountLabel.text = retweetCount
         let favoritesCount = String(tweet.favoritesCount)
         self.favoriteCountLabel.text = favoritesCount
-        thumbImageView.setImageWith(tweet.profileUrl as! URL)
+        thumbImageView.setImageWith(tweet.profileUrl! as URL)
         thumbImageView?.isUserInteractionEnabled = true
         let tapped:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.TappedOnImage))
         tapped.numberOfTapsRequired = 1
@@ -57,20 +63,41 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         replyText.becomeFirstResponder()
     }
     @IBAction func onRetweetButton(_ sender: UIButton) {
-        TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
-            self.retweetCountLabel.text = "\(self.tweet.retweetCount + 1)"
-            
-        }, failure: { (error: NSError) in
-            print ("error: \(error.localizedDescription)")
-        })
+        if tweet.isretweeted == false {
+            TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+                self.retweetCountLabel.text = "\(self.tweet.retweetCount + 1)"
+                self.retweetButton.setImage(#imageLiteral(resourceName: "retweet-action-on"), for: .normal)
+                
+            }, failure: { (error: NSError) in
+                print ("error: \(error.localizedDescription)")
+            })
+        } else {
+            TwitterClient.sharedInstance?.removeRetweet(id: tweet.id! as String, success: {
+                self.retweetCountLabel.text = "\(self.tweet.retweetCount - 1)"
+                self.retweetButton.setImage(#imageLiteral(resourceName: "retweet-action"), for: .normal)
+            }, failure: { (error: NSError) in
+                print ("error: \(error.localizedDescription)")
+            })
+        }
+        
     }
     @IBAction func onFavButton(_ sender: UIButton) {
-        TwitterClient.sharedInstance?.addRetweet(id: tweet.id! as String!, success: {
+        
+        if tweet.isfavorited == false {
+        TwitterClient.sharedInstance?.addFavorites(id: tweet.id! as String!, success: {
             self.favoriteCountLabel.text = "\(self.tweet.favoritesCount + 1)"
-            
+            self.favButton.setImage(#imageLiteral(resourceName: "like-action-on"), for: .normal)
         }, failure: { (error: NSError) in
             print ("error: \(error.localizedDescription)")
         })
+        } else {
+            TwitterClient.sharedInstance?.removeFavorites(id: tweet.id! as String!, success: {
+                self.favoriteCountLabel.text = "\(self.tweet.favoritesCount - 1)"
+                self.favButton.setImage(#imageLiteral(resourceName: "like-action"), for: .normal)
+            }, failure: { (error: NSError) in
+                 print ("error: \(error.localizedDescription)")
+            })
+        }
     }
     
     func TappedOnImage(sender: UITapGestureRecognizer){

@@ -154,6 +154,16 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func removeRetweet(id: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+        
+        post("1.1/statuses/unretweet/" + id! + ".json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+            success()
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
+    
     func replyTweet(tweet: String, tweetID: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
         print("reply twetID: \(tweetID)")
         
@@ -180,5 +190,17 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure (error as NSError)
         })
     }
+    
+    func removeFavorites(id: String!, success: @escaping () -> (), failure: @escaping (NSError) -> ()){
+        
+        post("1.1/favorites/destroy.json?id=" + id!, parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+            //print ("account: \(response)")
+            success()
+        }, failure: { (task: URLSessionDataTask?, error:Error) -> Void in
+            failure (error as NSError)
+        })
+    }
+
+    
 
 }

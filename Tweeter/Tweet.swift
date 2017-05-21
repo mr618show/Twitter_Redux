@@ -15,7 +15,9 @@ class Tweet: NSObject {
     var profileUrl: NSURL?
     var text: NSString?
     var timestamp: Date?
+    var isretweeted: Bool = false
     var retweetCount: Int = 0
+    var isfavorited: Bool = false
     var favoritesCount: Int = 0
     
     init (dictionary: NSDictionary) {
