@@ -32,7 +32,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navControllers.append(profileNavController)
         navControllers.append(tweetsNavController)
         navControllers.append(mentionsNavController)
-        hamburgerController.contentController = profileNavController
+        hamburgerController.contentViewController = profileNavController
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +51,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        hamburgerController.contentController = navControllers[indexPath.row]
+        hamburgerController.contentViewController = navControllers[indexPath.row]
         
         UIView.animate(withDuration: 0.5) {
             self.hamburgerController.leftMargin.constant = 0

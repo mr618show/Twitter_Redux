@@ -11,7 +11,7 @@ import UIKit
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate , UIGestureRecognizerDelegate {
     var tweets = [Tweet]()
     var refreshControl: UIRefreshControl!
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
     
@@ -75,6 +75,9 @@ func refreshControlAction(_ refreshControl: UIRefreshControl) {
         let composeVC = mainStoryboard.instantiateViewController(withIdentifier: "ComposeVC") as! ComposeViewController
         self.present(composeVC, animated: true, completion: nil)
     }
+    
+
+    
     
     // MARK: - Navigation
 

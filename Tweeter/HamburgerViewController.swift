@@ -22,11 +22,24 @@ class HamburgerViewController: UIViewController {
         }
     }
     
-    var contentController: UIViewController! {
-        didSet {
+    var contentViewController: UIViewController! {
+        didSet(oldContentViewController) {
             view.layoutIfNeeded()
-            contentView.addSubview(contentController.view)
+            if oldContentViewController != nil {
+                oldContentViewController.willMove(toParentViewController: nil)
+                oldContentViewController.view.removeFromSuperview()
+                oldContentViewController.didMove(toParentViewController: nil)
+            }
+            
+            contentViewController.willMove(toParentViewController: self)
+            contentView.addSubview(contentViewController.view)
+            contentViewController.didMove(toParentViewController: self)
+            UIView.animate(withDuration: 0.3) {
+                self.leftMargin.constant = 0
+                self.view.layoutIfNeeded()
+            }
         }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

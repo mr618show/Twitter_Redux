@@ -34,8 +34,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }, failure: {
             (error: Error?) -> Void in
-            print("error: \(error?.localizedDescription) ")
-            self.loginFailure?(error as! NSError)
+            print("error: \(String(describing: error?.localizedDescription)) ")
+            self.loginFailure?(error! as NSError)
         })
     }
     
