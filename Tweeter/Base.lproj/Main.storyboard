@@ -711,7 +711,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VpY-pJ-JNk">
-                                <rect key="frame" x="0.0" y="291" width="375" height="376"/>
+                                <rect key="frame" x="0.0" y="323" width="375" height="344"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileTweetCell" rowHeight="119" id="v9l-QU-zMU" customClass="TweetCell" customModule="Tweeter" customModuleProvider="target">
@@ -909,13 +909,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VpY-pJ-JNk" secondAttribute="trailing" id="9yh-ql-V0c"/>
-                            <constraint firstItem="VpY-pJ-JNk" firstAttribute="top" secondItem="2Fg-w3-kwc" secondAttribute="bottom" constant="-24" id="N1O-vv-38L"/>
+                            <constraint firstItem="VpY-pJ-JNk" firstAttribute="top" secondItem="2Fg-w3-kwc" secondAttribute="bottom" constant="8" id="N1O-vv-38L"/>
                             <constraint firstItem="2Fg-w3-kwc" firstAttribute="trailing" secondItem="VpY-pJ-JNk" secondAttribute="trailing" id="hLR-19-6HV"/>
                             <constraint firstItem="nZA-9j-hMv" firstAttribute="top" secondItem="VpY-pJ-JNk" secondAttribute="bottom" id="hhK-SB-haG"/>
                             <constraint firstItem="VpY-pJ-JNk" firstAttribute="leading" secondItem="btF-sY-afb" secondAttribute="leading" id="jAv-SF-ikq"/>
                             <constraint firstItem="2Fg-w3-kwc" firstAttribute="top" secondItem="GpN-5I-QtB" secondAttribute="bottom" constant="93" id="rdM-F5-Dh8"/>
                             <constraint firstItem="2Fg-w3-kwc" firstAttribute="leading" secondItem="VpY-pJ-JNk" secondAttribute="leading" id="y3D-Rk-Drh"/>
-                            <constraint firstItem="VpY-pJ-JNk" firstAttribute="top" secondItem="GpN-5I-QtB" secondAttribute="bottom" constant="227" id="yd7-8d-VHf"/>
+                            <constraint firstItem="VpY-pJ-JNk" firstAttribute="top" secondItem="GpN-5I-QtB" secondAttribute="bottom" constant="259" id="yd7-8d-VHf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fC4-v5-bwH"/>

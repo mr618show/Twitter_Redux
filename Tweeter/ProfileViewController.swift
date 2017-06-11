@@ -34,6 +34,7 @@ class ProfileViewController: TweetsViewController {
             user = User.currentUser
             self.title = user.name as String?
         }
+        updateTimeline()
         
         self.title = user?.name as String?
         self.nameLabel.text = user?.name as String?
@@ -53,17 +54,30 @@ class ProfileViewController: TweetsViewController {
         }
         
         profileImage.setImageWith(user!.profileUrl! as URL)
+        
         if user.headerUrl != nil {
             headerImageView.setImageWith(user!.headerUrl! as URL)
+            let image = UIImageView()
+            tableView.backgroundView = image
+            tableView.backgroundView?.contentMode = .scaleAspectFill
+            tableView.backgroundView?.clipsToBounds = true
+            overlay.frame = tableView.frame
         }
-        TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname as String!, success: {(tweets: [Tweet]) -> () in
+        
+     
+        self.tableView.contentInset = defaultOffset
+        originalTransform = self.tableView.backgroundView?.transform
+        originalOverlayEffect = self.overlay.effect
+        tableView.reloadData()
+        /*TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname as String!, success: {(tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
         }, failure: { (error: NSError) -> () in
             print(error.localizedDescription)
-        })
+        }) */
     }
     
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

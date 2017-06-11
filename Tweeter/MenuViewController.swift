@@ -47,6 +47,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
         cell.backgroundColor = twitterColor
         cell.textLabel?.text = menuSections[indexPath.row]
+        cell.textLabel?.font = UIFont (name: "HelveticaNeue-Light", size: 30)
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
