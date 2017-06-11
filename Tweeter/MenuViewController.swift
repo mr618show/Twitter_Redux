@@ -60,7 +60,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 160.0
     }
     
 
