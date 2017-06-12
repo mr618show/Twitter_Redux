@@ -19,6 +19,7 @@ Profile page
 * [x]Contains the user header view
 * [x]Contains a section with the users basic stats: # tweets, # following, # followers
 * [x]Shows the user timeline
+* [x]Pulling down the profile page should blur and resize the header image.
 Home Timeline
 
 * [x]Tapping on a user image should bring up that user's profile page
