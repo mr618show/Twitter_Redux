@@ -27,6 +27,6 @@ Home Timeline
   
 Walkthrough of all user stories:
 
-![Video Walkthrough](twitter_redux.gif)
+![Video Walkthrough](twitterRedux.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
