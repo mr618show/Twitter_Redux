@@ -24,6 +24,8 @@
 		A513D9BF1EA2A2BF001329F1 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9BE1EA2A2BF001329F1 /* TweetCell.swift */; };
 		A513D9C11EA3DF7C001329F1 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C01EA3DF7C001329F1 /* ComposeViewController.swift */; };
 		A513D9CB1EA49ABB001329F1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */; };
+		A51E855C1EEDFC3400A421FA /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E855B1EEDFC3400A421FA /* ProfileHeader.swift */; };
+		A51E85601EEDFDFE00A421FA /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A51E855F1EEDFDFE00A421FA /* ProfileHeaderView.xib */; };
 		A52D72151EA9866F004AC766 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D72131EA9866F004AC766 /* HamburgerViewController.swift */; };
 		A52D72161EA9866F004AC766 /* HamburgerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52D72141EA9866F004AC766 /* HamburgerViewController.xib */; };
 		A52D72181EA9DB5F004AC766 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52D72171EA9DB5F004AC766 /* MenuViewController.swift */; };
@@ -73,6 +75,8 @@
 		A513D9BE1EA2A2BF001329F1 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		A513D9C01EA3DF7C001329F1 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		A513D9C21EA3DF9C001329F1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A51E855B1EEDFC3400A421FA /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		A51E855F1EEDFDFE00A421FA /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		A52D72131EA9866F004AC766 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		A52D72141EA9866F004AC766 /* HamburgerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerViewController.xib; sourceTree = "<group>"; };
 		A52D72171EA9DB5F004AC766 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				A513D9B31EA08349001329F1 /* Models */,
 				A513D9091E9EFC41001329F1 /* AppDelegate.swift */,
 				A513D90D1E9EFC41001329F1 /* Main.storyboard */,
+				A51E855F1EEDFDFE00A421FA /* ProfileHeaderView.xib */,
 				A513D9101E9EFC41001329F1 /* Assets.xcassets */,
 				A513D9121E9EFC41001329F1 /* LaunchScreen.storyboard */,
 				A513D9151E9EFC41001329F1 /* Info.plist */,
@@ -190,6 +195,7 @@
 				A513D9B81EA083CD001329F1 /* Tweet.swift */,
 				A513D9BE1EA2A2BF001329F1 /* TweetCell.swift */,
 				A52D721D1EABE100004AC766 /* MentionCell.swift */,
+				A51E855B1EEDFC3400A421FA /* ProfileHeader.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				A513D9141E9EFC41001329F1 /* LaunchScreen.storyboard in Resources */,
 				A513D9111E9EFC41001329F1 /* Assets.xcassets in Resources */,
 				A513D90F1E9EFC41001329F1 /* Main.storyboard in Resources */,
+				A51E85601EEDFDFE00A421FA /* ProfileHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +528,7 @@
 				A52D721C1EAA8B4B004AC766 /* MentionsViewController.swift in Sources */,
 				A52D721E1EABE100004AC766 /* MentionCell.swift in Sources */,
 				A513D9C11EA3DF7C001329F1 /* ComposeViewController.swift in Sources */,
+				A51E855C1EEDFC3400A421FA /* ProfileHeader.swift in Sources */,
 				A52D721A1EAA8B3B004AC766 /* ProfileViewController.swift in Sources */,
 				A513D9381E9EFFD8001329F1 /* LoginViewController.swift in Sources */,
 				A513D9BD1EA298D1001329F1 /* TweetsViewController.swift in Sources */,

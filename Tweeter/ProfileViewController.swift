@@ -9,18 +9,8 @@
 import UIKit
 
 class ProfileViewController: TweetsViewController {
-    
-
-    @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var blurImageView: UIImageView!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var screenNameLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var followerCountLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
     var user : User!
+    var headerView: ProfileHeader!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,41 +18,32 @@ class ProfileViewController: TweetsViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        
-        
+
         if (user == nil) {
             user = User.currentUser
             self.title = user.name as String?
         }
         updateTimeline()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
-        self.title = user?.name as String?
-        self.nameLabel.text = user?.name as String?
+        headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?[0] as! ProfileHeader
+        headerView.user = user
+        tableView.tableHeaderView = headerView
+        tableView.tableFooterView = UIView()
         
-        if let screenName = user?.screenname {
-            self.screenNameLabel.text = "@ \(screenName)"
-        }
+  
         
-        if let tagLine = user?.tagline {
-            self.descriptionLabel.text = tagLine as String 
-        }
-        if let followers = user?.followersCount {
-            self.followerCountLabel.text = "\(followers)"
-        }
-        if let friends = user?.followingCount{
-            followingCountLabel.text = "\(friends)"
-        }
-        
-        profileImage.setImageWith(user!.profileUrl! as URL)
-        
-        if user.headerUrl != nil {
-            headerImageView.setImageWith(user!.headerUrl! as URL)
+        if let background = user.headerUrl {
             let image = UIImageView()
+            image.setImageWith(background as URL)
             tableView.backgroundView = image
             tableView.backgroundView?.contentMode = .scaleAspectFill
             tableView.backgroundView?.clipsToBounds = true
             overlay.frame = tableView.frame
         }
+
         
      
         self.tableView.contentInset = defaultOffset
@@ -81,6 +62,27 @@ class ProfileViewController: TweetsViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func updateTimeline() {
+        if user == nil {
+            
+            user = User.currentUser
+            TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+            }, failure: { (error: NSError) -> () in
+                print(error.localizedDescription)
+            })
+        }
+        else {
+            TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname! as String, success: {(tweets: [Tweet]) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+            }, failure: { (error: NSError) -> () in
+                print(error.localizedDescription)
+            })
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
