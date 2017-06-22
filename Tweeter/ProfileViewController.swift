@@ -8,33 +8,35 @@
 
 import UIKit
 
-class ProfileViewController: TweetsViewController {
+class ProfileViewController: TweetsViewController{
     var user : User!
     var headerView: ProfileHeader!
+    var scrollView: UIScrollView!
+    var pageControl: UIPageControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
-        if (user == nil) {
-            user = User.currentUser
-            self.title = user.name as String?
-        }
         updateTimeline()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
         headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?[0] as! ProfileHeader
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height))
+        pageControl = UIPageControl(frame: CGRect(x: headerView.frame.width/2 - 78, y: 20, width: 100, height: 20))
+        scrollView.delegate = self
         headerView.user = user
         tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
-        
-  
-        
+        configPageControl()
+    
         if let background = user.headerUrl {
             let image = UIImageView()
             image.setImageWith(background as URL)
@@ -43,30 +45,28 @@ class ProfileViewController: TweetsViewController {
             tableView.backgroundView?.clipsToBounds = true
             overlay.frame = tableView.frame
         }
-
-        
-     
+   
         self.tableView.contentInset = defaultOffset
         originalTransform = self.tableView.backgroundView?.transform
         originalOverlayEffect = self.overlay.effect
         tableView.reloadData()
-        /*TwitterClient.sharedInstance?.userHomeTimeline(screenName: user.screenname as String!, success: {(tweets: [Tweet]) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-        }, failure: { (error: NSError) -> () in
-            print(error.localizedDescription)
-        }) */
     }
     
-   
+    func configPageControl() {
+        pageControl.numberOfPages = 3
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        headerView.addSubview(pageControl)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     override func updateTimeline() {
         if user == nil {
-            
             user = User.currentUser
             TwitterClient.sharedInstance?.homeTimeline(success: {(tweets: [Tweet]) -> () in
                 self.tweets = tweets
@@ -91,15 +91,5 @@ class ProfileViewController: TweetsViewController {
         //cell.user = user
         return cell
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
