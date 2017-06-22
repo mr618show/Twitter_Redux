@@ -21,13 +21,13 @@ Profile page
 * [x]Shows the user timeline
 * [x]Pulling down the profile page should blur and resize the header image.
 Home Timeline
-
 * [x]Tapping on a user image should bring up that user's profile page
+* [x]Implement paging view for the user description. 
 
   
   
 Walkthrough of all user stories:
 
-![Video Walkthrough](twitterRedux.gif)
+![Video Walkthrough](twitter.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
